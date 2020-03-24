@@ -529,4 +529,49 @@ buckets=$(aws s3 ls | cut -d " " -f 3 | grep -E ^sreeenv)
 for i in $buckets
 do
 aws s3api delete-bucket --bucket $i --region us-east-1
+
+####FOR LOOP EXAMPLES####
+#!/bin/bash
+for i in 1 2 3 4 5
+do
+   echo "Welcome $i times"
 done
+############
+#!/bin/bash
+for i in {1..5}
+do
+   echo "Welcome $i times"
+done
+##########START END INCREMENT##
+#!/bin/bash
+echo "Bash version ${BASH_VERSION}..."
+for i in {0..10..2}
+  do 
+     echo "Welcome $i times"
+ done
+ ##########
+ #!/bin/bash
+for (( i=0; i<10; i ++ ))
+  do 
+     echo "Welcome $i times"
+ done
+ ###########
+ # List IN SHELLSCRIPT###
+servers="172.217.169.14 8.8.8.8"
+ for i in $servers
+ do 
+ echo "pinging the $i now"
+ ping -c 3 $i
+ done
+ ###################
+ #While Loop ##########
+website="https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip"
+ i=0
+ while [ $i -lt 10 ]
+ do
+ wget $website
+ mv terraform_0.12.24_linux_amd64.zip terraform$i
+ i=$(( $i +1 ))
+ done
+ ########################
+
